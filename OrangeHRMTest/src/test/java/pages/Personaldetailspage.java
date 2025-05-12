@@ -39,7 +39,7 @@ public class Personaldetailspage {
 	private By personaldetailssavebutton = By.xpath("(//button[@type='submit'])[1]");
 	
 	private By profilepicsavebutton = By.xpath("//button[@type='submit']");
-	private String imagefilePath = "C:\\Users\\dhivy\\eclipse-workspace\\OrangeHRMTest\\src\\test\\resources\\testdata\\profilepic.png";
+	private String imagefilePath = System.getProperty("user.dir")+ "\\src\\test\\resources\\testdata\\profilepic.png";
 
 	private By myInfolink = By.xpath("//span[normalize-space()='My Info']");
 	private By salarylink = By.xpath("//a[normalize-space()='Salary']");

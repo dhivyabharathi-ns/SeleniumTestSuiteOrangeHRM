@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <groups>
+      <run>
+        <include name="Unit"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testcases.TC_UnitTest_01">
+        <methods>
+          <include name="unitlogin" invocation-numbers="0 1 2 3 4 5 6 7 8"/>
+        </methods>
+      </class> <!-- testcases.TC_UnitTest_01 -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

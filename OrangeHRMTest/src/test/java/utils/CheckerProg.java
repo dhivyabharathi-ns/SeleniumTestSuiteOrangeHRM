@@ -7,6 +7,8 @@ import java.awt.event.KeyEvent;
 public class CheckerProg {
 
 	public static void main(String[] args) {
+		
+		// check commit
 		// TODO Auto-generated method stub
 		 String filePath = "C:\\Users\\dhivy\\eclipse-workspace\\OrangeHRMTest\\src\\test\\resources\\testdata\\profilepic.png";
 	  	 

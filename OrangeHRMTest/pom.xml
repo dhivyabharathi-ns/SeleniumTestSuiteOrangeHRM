@@ -258,6 +258,7 @@
 		<releases>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
-			</releases> v</pluginRepository>
+			</releases>
+			</pluginRepository>
 	</pluginRepositories>
 </project>

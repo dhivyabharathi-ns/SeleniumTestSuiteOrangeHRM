@@ -1,9 +1,9 @@
 <project xmlns="https://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-<properties>
-<build-plugin-prefix>install</build-plugin-prefix>
-</properties>
+	<properties>
+		<build-plugin-prefix>install</build-plugin-prefix>
+	</properties>
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.taf</groupId>
@@ -35,11 +35,11 @@
 			<version>7.11.0</version>
 			<scope>test</scope>
 		</dependency>
-<dependency>
-  <groupId>org.projectlombok</groupId>
-  <artifactId>lombok</artifactId>
-  <version>1.18.28</version>
-</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
+		</dependency>
 		<!--
 		https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
@@ -123,127 +123,141 @@
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 
 	</dependencies>
-	 <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-      <plugins>
-      <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<version>2.22.0</version>
-		</plugin>
-		<plugin>
-			<groupId>com.qmetry</groupId>
-			<artifactId>automation</artifactId>
-			<version>1.0.3</version>
-			<executions>
-				<execution>
-					<phase>test</phase>
-					<goals>
-						<goal>CucumberFileUpload</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
-       <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
-        <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.8.1</version>
-    <configuration>
-        <source>16</source>
-        <target>16</target>
-        <!--                    <release>16</release>-->
-        <fork>true</fork>
-        <compilerArgs>
-            <arg>--enable-preview</arg>
-            <arg>-Xlint:all</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
-            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
-        </compilerArgs>
-        <!--for unmappable characters in classes-->
-        <encoding>UTF-8</encoding>
-        <showDeprecation>true</showDeprecation>
-        <showWarnings>true</showWarnings>
-        <!--for lombok annotations to resolve-->
-        <!--contradictory to maven, intelliJ fails with this-->
-        <annotationProcessorPaths>
-            <path>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.16</version>
-            </path>
-        </annotationProcessorPaths>
-    </configuration>
-</plugin>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.4.0</version>
-        </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.3.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.13.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.3.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.4.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>3.1.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>3.1.2</version>
-        </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.12.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.6.1</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-<pluginRepositories>
-	<pluginRepository>
-		<id>qmetrytestmanager-mvn-repo</id>
-		<name>QMetry Test Manager Maven Repository</name>
-		<url>https://raw.github.com/qmetry/qtm4j-maven-uploader/mvn-repo/</url>
+	<build>
+		<pluginManagement><!-- lock down plugins versions to avoid using Maven
+			defaults (may be moved to parent pom) -->
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.0</version>
+				</plugin>
+				<plugin>
+					<groupId>com.qmetry</groupId>
+					<artifactId>automation</artifactId>
+					<version>1.0.3</version>
+					<executions>
+						<execution>
+							<phase>test</phase>
+							<goals>
+								<goal>CucumberFileUpload</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>16</source>
+						<target>16</target>
+						<!--                    <release>16</release>-->
+						<fork>true</fork>
+						<compilerArgs>
+							<arg>--enable-preview</arg>
+							<arg>-Xlint:all</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+							<arg>
+								-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
+						</compilerArgs>
+						<!--for unmappable characters in classes-->
+						<encoding>UTF-8</encoding>
+						<showDeprecation>true</showDeprecation>
+						<showWarnings>true</showWarnings>
+						<!--for lombok annotations to resolve-->
+						<!--contradictory to maven, intelliJ fails with this-->
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>1.18.16</version>
+							</path>
+						</annotationProcessorPaths>
+					</configuration>
+				</plugin>
+				<!-- clean lifecycle, see
+				https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.4.0</version>
+				</plugin>
+				<!-- default lifecycle, jar packaging: see
+				https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.3.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.13.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.3.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.4.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>3.1.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>3.1.2</version>
+				</plugin>
+				<!-- site lifecycle, see
+				https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+				<plugin>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.12.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>3.6.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+
+	</build>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>qmetrytestmanager-mvn-repo</id>
+		<name>QMetry Test Manager Maven
+			Repository</name>
+		<url>
+			https://raw.github.com/qmetry/qtm4j-maven-uploader/mvn-repo/</url>
 		<releases>
-			<enabled>true</enabled>
-			<updatePolicy>always</updatePolicy>
-		</releases>
-	v</pluginRepository>
-</pluginRepositories>
-
-    
-  </build>
-
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases> v</pluginRepository>
+	</pluginRepositories>
 </project>

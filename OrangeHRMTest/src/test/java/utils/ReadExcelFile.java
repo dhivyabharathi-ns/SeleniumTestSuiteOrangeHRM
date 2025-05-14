@@ -53,7 +53,7 @@ public class ReadExcelFile {
 		{
 			
 				
-				FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
+			FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
 			testdata[i-1][j]=format.formatCellValue(sheet.getRow(i).getCell(j), evaluator);
 			System.out.println(testdata[i-1][j]);
 		}

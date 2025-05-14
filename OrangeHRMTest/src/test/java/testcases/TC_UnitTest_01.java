@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -74,6 +75,10 @@ public class TC_UnitTest_01 extends BaseTest {
 
 		Assert.assertEquals(actualTitle, expectedTitle,
 				"Invalid Login attempt is allowed - vulnerable to security threats");
+		JavascriptExecutor js= (JavascriptExecutor)driver;
+		js.executeScript("window.scrollTo(0,300)");
+		
+		
 		// take screenshot of profile
 				TakesScreenshot ts = (TakesScreenshot) driver;
 				File file = ts.getScreenshotAs(OutputType.FILE);

@@ -22,7 +22,7 @@ public class BaseTest {
 	public static FileReader fr;
 	public static Properties p = new Properties();
 	
-	@BeforeMethod(groups= {"Unit","Integration"})
+	@BeforeMethod(groups= {"Unit","Integration","Positive","Negative","E2E","AddUser","DeleteUser","Payroll","UserRole"})
 
 	public void setUp() throws IOException
 	{
@@ -46,7 +46,7 @@ public class BaseTest {
 		}
 	
 	}
-	@AfterMethod(groups= {"Unit","Integration"})
+	@AfterMethod(groups= {"Unit","Integration","Positive","Negative","E2E","AddUser","DeleteUser","Payroll","UserRole"})
 
 	public void tearDown()
 	{

@@ -4,13 +4,15 @@
   <test thread-count="5" name="Test(failed)">
     <groups>
       <run>
-        <include name="Unit"/>
+        <include name="Negative"/>
       </run>
     </groups>
     <classes>
       <class name="testcases.TC_UnitTest_01">
         <methods>
-          <include name="unitlogin" invocation-numbers="0 1 2 3 4 5 6 7 8"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="loginNegative" invocation-numbers="0 1 2 3 4 5 6 7"/>
         </methods>
       </class> <!-- testcases.TC_UnitTest_01 -->
     </classes>

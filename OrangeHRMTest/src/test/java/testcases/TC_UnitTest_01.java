@@ -10,9 +10,17 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -43,13 +51,13 @@ public class TC_UnitTest_01 extends BaseTest {
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		String actualTitle = driver.findElement(By.xpath("(//h6[text()='Dashboard'])")).getText();
-		System.out.println(actualTitle);
+		//System.out.println(actualTitle);
 		String expectedTitle = "Dashboard";
 
 		// assert title
 		Assert.assertEquals(actualTitle, expectedTitle, "Page title does not match the expected value");
 
-		System.out.println("Valid-Login attempt successful as expected");
+		System.out.println("Valid-Login attempt successful as expected for user - " + username);
 	}
 
 	
@@ -58,7 +66,7 @@ public class TC_UnitTest_01 extends BaseTest {
 
 		TC_UnitTest_01 obj = new TC_UnitTest_01();
 		obj.login(username, password);
-
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		// assert title
 		String actualTitle = driver.findElement(By.xpath("//h5[text()='Login']")).getText();
 
@@ -66,6 +74,16 @@ public class TC_UnitTest_01 extends BaseTest {
 
 		Assert.assertEquals(actualTitle, expectedTitle,
 				"Invalid Login attempt is allowed - vulnerable to security threats");
+		// take screenshot of profile
+				TakesScreenshot ts = (TakesScreenshot) driver;
+				File file = ts.getScreenshotAs(OutputType.FILE);
+				String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
+				try {
+					FileUtils.copyFile(file, new File("./ScreenShot_Folder/TC_UnitTest_LoginNegative_01_" + timestamp + ".png"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 		System.out.println("Invalid-Login attempt Not allowed as expected");
 
@@ -76,7 +94,7 @@ public class TC_UnitTest_01 extends BaseTest {
 		if (driver != null) {
 			Logoutpage logout = new Logoutpage(driver);
 			logout.logout();
-			System.out.println("Logged out successfully");
+			System.out.println("User Logged out successfully");
 		}
 	}
 

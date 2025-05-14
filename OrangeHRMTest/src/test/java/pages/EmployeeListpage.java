@@ -51,13 +51,12 @@ public class EmployeeListpage {
 		
 		public void editemployee(String firstname, String middlename) throws InterruptedException {
 			WebElement searchresult = driver.findElement(searchlist);
-			System.out.println(searchresult.getText());
-			System.out.println(firstname + " " + middlename);
+			System.out.println("user selected: "+searchresult.getText());
+		//	System.out.println(firstname + " " + middlename);
 			Thread.sleep(3000);
 
 			if (searchresult.getText().equalsIgnoreCase(firstname + " " + middlename)) {
 
-				
 				driver.findElement(editiconbutton).click();
 				Thread.sleep(3000);
 				

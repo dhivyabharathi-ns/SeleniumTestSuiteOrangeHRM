@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -21,6 +23,7 @@ private WebDriver driver;
         driver.findElement(passwordField).sendKeys(password);
     }
     public void clickLogin() {
+      
         driver.findElement(loginButton).click();
     }
 }

@@ -73,7 +73,7 @@ public class Personaldetailspage {
 			prev = curr;
 			actions.keyDown(Keys.DOWN).perform();
 			curr = nationalitydd.getText();
-			System.out.println(curr);
+			//System.out.println(curr);
 		} while (!prev.equalsIgnoreCase(curr) && !curr.equalsIgnoreCase(nationality));
 		
 	
@@ -85,7 +85,7 @@ public class Personaldetailspage {
 
 		do {
 			actions.keyDown(Keys.DOWN).perform();
-			System.out.println(maritalstatusdd.getText());
+			//System.out.println(maritalstatusdd.getText());
 		} while (!maritalstatusdd.getText().equalsIgnoreCase(maritalstatus));
 		
 		
@@ -148,7 +148,7 @@ public class Personaldetailspage {
 		driver.findElement(salarycomponentfield).sendKeys(salarycomponent);
 	
 		String currentpaygradedd = driver.findElement(paygradeselect).getText();
-		System.out.println(currentpaygradedd);
+		//System.out.println(currentpaygradedd);
 		driver.findElement(paygradeselect).click();
 		if (!currentpaygradedd.equalsIgnoreCase(paygrade)) {
 		do {
@@ -160,7 +160,7 @@ public class Personaldetailspage {
 		}
 		
 		String currentpayfreqdd = driver.findElement(payfrequencyselect).getText();
-		System.out.println(currentpayfreqdd);
+	//	System.out.println(currentpayfreqdd);
 		driver.findElement(payfrequencyselect).click();
 		
 		if (!currentpayfreqdd.equalsIgnoreCase(payfreq)) {
@@ -171,7 +171,7 @@ public class Personaldetailspage {
 		actions.keyDown(Keys.ENTER).perform();
 		}
 		String currentcurrencydd = driver.findElement(currencyselect).getText();
-		System.out.println(currentcurrencydd);
+	//	System.out.println(currentcurrencydd);
 		driver.findElement(currencyselect).click();
 		if (!currentcurrencydd.equalsIgnoreCase(currency)) {
 		do {

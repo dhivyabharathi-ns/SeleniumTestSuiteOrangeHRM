@@ -7,7 +7,7 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="addemployee" invocation-numbers="0 1"/>
+          <include name="addemployee" invocation-numbers="1 2"/>
         </methods>
       </class> <!-- testcases.TC_Integration_01 -->
     </classes>

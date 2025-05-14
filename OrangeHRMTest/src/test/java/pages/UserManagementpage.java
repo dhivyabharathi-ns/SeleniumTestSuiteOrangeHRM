@@ -45,7 +45,7 @@ public class UserManagementpage {
 	public void editemployee(String empuser) throws InterruptedException {
 		WebElement searchresult = driver.findElement(searchresultusername);
 		System.out.println(searchresult.getText());
-		System.out.println(empuser);
+		//System.out.println(empuser);
 		Thread.sleep(3000);
 
 		if (searchresult.getText().equalsIgnoreCase(empuser)) {
@@ -59,7 +59,7 @@ public class UserManagementpage {
 		Actions actions = new Actions(driver);
 
 		String currentuserrole = driver.findElement(userrolefield).getText();
-		System.out.println(currentuserrole);
+		System.out.println("Current user role -" +currentuserrole);
 		 driver.findElement(userrolefield).click();
 
 		if (!currentuserrole.equalsIgnoreCase(userrrole)) {
@@ -68,7 +68,10 @@ public class UserManagementpage {
 			currentuserrole=driver.findElement(userrolefield).getText();
 			}while(!currentuserrole.equalsIgnoreCase(userrrole));
 		actions.keyDown(Keys.ENTER).perform();
+		
 		}
+		
+		System.out.println("Updated user role -" +currentuserrole);
 		driver.findElement(savebutton).click();
 }
 	

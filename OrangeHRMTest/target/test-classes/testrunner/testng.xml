@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Test Suite">
- <test name="Unit Test" >
+<suite name="Suite">
+  <test thread-count="5" name="Test">
  <groups>  
       <run>  
-         <include name="Integration"/> 
+         <include name="Negative"/> 
       </run>  
    </groups>
- 
- 
-       
     <classes>
+   
       <class name="testcases.TC_UnitTest_01"/>
-     <class name="testcases.TC_Integration_01"/>
+       <class name="testcases.TC_Integration_01"/>
+        <class name="testcases.TC_E2E_01"/>
+    
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

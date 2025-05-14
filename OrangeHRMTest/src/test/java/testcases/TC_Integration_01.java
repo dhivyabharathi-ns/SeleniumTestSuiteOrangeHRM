@@ -34,7 +34,7 @@ public class TC_Integration_01 extends BaseTest {
 	TC_UnitTest_01 obj = new TC_UnitTest_01();
 
 	@SuppressWarnings("deprecation")
-	@Test(dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "Integration" })
+	@Test(dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "Integration","AddUser" })
 	public void addemployee(String username, String password, String firstname, String middlename, String lastname,
 			String empusername, String emppwd, String nationality, String maritalstatus, String dob, String gender)
 			throws Exception {
@@ -47,7 +47,7 @@ public class TC_Integration_01 extends BaseTest {
 		Thread.sleep(3000);
 
 		// assert title
-		String actualTitle = driver.findElement(By.xpath("(//h6[text()='Dashboard'])")).getText();
+		String actualTitle = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
 		String expectedTitle = "Dashboard";
 		assertEquals(actualTitle, expectedTitle, "Page title does not match with the expected value, User not logged in");
 
@@ -104,7 +104,7 @@ public class TC_Integration_01 extends BaseTest {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File file = ts.getScreenshotAs(OutputType.FILE);
 		String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
-		FileUtils.copyFile(file, new File("./ScreenShot_Folder/Test1_Login" + timestamp + ".png"));
+		FileUtils.copyFile(file, new File("./ScreenShot_Folder/TC_Integration_01_addemployee_" + timestamp + ".png"));
 
 		Thread.sleep(1000);
 		js.executeScript("window.scrollTo(0, 200)");
@@ -117,14 +117,14 @@ public class TC_Integration_01 extends BaseTest {
 		obj.logout();
 				
 		obj.loginPositive(empusername, emppwd);
-		assertEquals(actualTitle, expectedTitle, "Page title does not match with the expected value, User not logged in");
-
+		Thread.sleep(3000);
+		System.out.println(driver.findElement(By.xpath("//p[@class='oxd-userdropdown-name']")).getText()+"- user created and is able to log in successfully");
 		Thread.sleep(3000);
 		obj.logout();
 		
 	}
 
-	@Test(dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "Integration" })
+	@Test(dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "Integration","UserRole" })
 	public void assignUserRole(String username, String password, String empuser, String emppwd,String userrole)
 			throws InterruptedException {
 		

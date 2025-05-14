@@ -20,7 +20,7 @@ public class TC_E2E_01 extends BaseTest {
 	
 	TC_UnitTest_01 e2e = new TC_UnitTest_01();
 	@SuppressWarnings("deprecation")
-	@Test (dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "E2E" })
+	@Test (dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "E2E","Payroll" })
 	public void configurePayroll(String username, String password,String empfirstname, String empmiddlename, String empuser, String emppwd,String salarycomp, String paygrade, String payfreq, String currency, String amount)
 			throws InterruptedException {
 		
@@ -49,7 +49,7 @@ public class TC_E2E_01 extends BaseTest {
 
 }
 	
-	@Test(dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "Integration" })
+	@Test(dataProviderClass = ReadExcelFile.class, dataProvider = "testdata", groups = { "E2E","DeleteUser" })
 	public void deleteemployee(String username, String password, String firstname, String middlename) throws Exception {
 		
 		//Login as Admin

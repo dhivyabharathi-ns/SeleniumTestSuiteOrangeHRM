@@ -50,11 +50,12 @@ public class TC_UnitTest_01 extends BaseTest {
 		obj.login(username, password);
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		String actualTitle = driver.findElement(By.xpath("(//h6[text()='Dashboard'])")).getText();
+		
+		String actualTitle = driver.findElement(By.xpath("//span[normalize-space()='My Info']")).getText();
 		//System.out.println(actualTitle);
-		String expectedTitle = "Dashboard";
+		String expectedTitle = "My Info";
 
-		// assert title
+		// assert webelement after login
 		Assert.assertEquals(actualTitle, expectedTitle, "Page title does not match the expected value");
 
 		System.out.println("Valid-Login attempt successful as expected for user - " + username);

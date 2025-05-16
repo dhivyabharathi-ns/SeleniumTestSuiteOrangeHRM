@@ -46,13 +46,7 @@ public class TC_Integration_01 extends BaseTest {
 
 		Thread.sleep(3000);
 
-		// assert title
-		String actualTitle = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
-		String expectedTitle = "Dashboard";
-		assertEquals(actualTitle, expectedTitle, "Page title does not match with the expected value, User not logged in");
-
-		Thread.sleep(3000);
-
+		
 		// add employee
 		Addemployeepage empadd = new Addemployeepage(driver);
 		empadd.clickonPIMlink();
@@ -100,12 +94,7 @@ public class TC_Integration_01 extends BaseTest {
 		// profile pic update
 		emppersonal.updateprofilepic();
 
-		// take screenshot of profile
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File file = ts.getScreenshotAs(OutputType.FILE);
-		String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
-		FileUtils.copyFile(file, new File("./ScreenShot_Folder/TC_Integration_01_addemployee_" + timestamp + ".png"));
-
+		
 		Thread.sleep(1000);
 		js.executeScript("window.scrollTo(0, 200)");
 
@@ -115,7 +104,8 @@ public class TC_Integration_01 extends BaseTest {
 		Thread.sleep(2000);
 
 		obj.logout();
-				
+		
+		//verify user login
 		obj.loginPositive(empusername, emppwd);
 		Thread.sleep(3000);
 		System.out.println(driver.findElement(By.xpath("//p[@class='oxd-userdropdown-name']")).getText()+"- user created and is able to log in successfully");

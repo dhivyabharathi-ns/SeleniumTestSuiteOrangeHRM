@@ -27,20 +27,20 @@ public class TC_E2E_01 extends BaseTest {
 		//login as admin
 		e2e.loginPositive(username, password);
 		
-		
+		//search employee and click on edit
 		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 		EmployeeListpage search = new EmployeeListpage(driver);
 		search.clickonPIMlink();
 		search.searchemployee(empfirstname, empmiddlename);
 		search.editemployee(empfirstname, empmiddlename);
 		
-		
+		// enter payroll
 		Personaldetailspage pay=new Personaldetailspage(driver);
 		pay.enterPayroll(salarycomp, paygrade, payfreq, currency, amount);
 		
 		
 		e2e.logout();
-		
+		//verify payroll
 		e2e.loginPositive(empuser, emppwd);
 		pay.verifyPayroll(salarycomp, paygrade, payfreq, currency, amount);
 		Thread.sleep(5000);

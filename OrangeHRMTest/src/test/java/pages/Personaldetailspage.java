@@ -7,9 +7,16 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -113,7 +120,7 @@ public class Personaldetailspage {
 		driver.findElement(personaldetailssavebutton).click();
 	}
 
-	public void updateprofilepic() throws InterruptedException, AWTException {
+	public void updateprofilepic() throws InterruptedException, AWTException, IOException {
 
 		StringSelection stringSelection = new StringSelection(imagefilePath);
 
@@ -138,6 +145,12 @@ public class Personaldetailspage {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		robot.delay(6000);
 		Thread.sleep(2000);
+		// take screenshot of profile
+				TakesScreenshot ts = (TakesScreenshot) driver;
+				File file = ts.getScreenshotAs(OutputType.FILE);
+				String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
+				FileUtils.copyFile(file, new File("./ScreenShot_Folder/TC_Integration_01_addemployee_" + timestamp + ".png"));
+
 		driver.findElement(profilepicsavebutton).click();
 	}
 	
